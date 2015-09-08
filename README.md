@@ -52,7 +52,6 @@ As that is a very good document about how to structure application.
     
 And some of my own utility functions, that I share among projects.
 Routing, platform-abstraction, utilities, etc.
-    
         [solsort.util :refer [route log unique-id]]
         ))
     
@@ -64,16 +63,18 @@ This is just a small hello-world app, will be replaced by the actual code soon.
       "lemon" :app
       (fn []
         (reaction {:type :app
-               :title "lemon"
-               :navigate-back {:event ['home] :title "Home" :icon "home"}
-               :actions [ {:event [:log "pressed hello"] :icon "hello"}
-                         {:event ['paste] :icon "paste"} ]
-               :views [ {:event ['view-left] :icon "left"}
-                       {:event ['view-right] :icon "right"} ]
-               :html
-               [:div
-                ; show log
-                (map (fn [e] [:div {:key (unique-id)} (.slice (str e) 1 -1)]) (reverse @(subscribe [:log])))
-                (str (range 1000)) ; some random text that takes space
-                
-                ]})))
+                   :title "lemon"
+                   :navigate-back {:event ['home] :title "Home" :icon "home"}
+                   :actions [ {:event [:log "pressed hello"] :icon "hello"}
+                             {:event ['paste] :icon "paste"} ]
+                   :views [ {:event ['view-left] :icon "left"}
+                           {:event ['view-right] :icon "right"} ]
+                   :html
+                   [:div
+                    ; show log
+                    (map 
+                      (fn [e] [:div {:key (unique-id)} (.slice (str e) 1 -1)]) 
+                      (reverse @(subscribe [:log])))
+                    (str (range 1000)) ; some random text that takes space
+    
+                    ]})))
