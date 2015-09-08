@@ -9,7 +9,7 @@
 ;;
 ;; Install leiningen, and:
 ;;
-;;     lein figwheel
+;; - `lein figwheel`
 ;; 
 ;; Then a local development-version of the NewCircleMovement/tinkuy ruby app, 
 ;; running on port 3000, will connect directly to the clojurescript environment,
