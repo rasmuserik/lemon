@@ -17,7 +17,7 @@
 
 ;; ## example/test-app
 (route
-  "lemon"
+  "lemon" :app
   (fn []
     (reaction {:type :app
            :title "lemon"
