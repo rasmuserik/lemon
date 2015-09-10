@@ -47,6 +47,26 @@
     [solsort.util :refer [route log unique-id]]
     ))
 
+;; ## API-mock
+;;
+
+(defn extract-solsort-data []
+  (loop [e  (js/document.getElementsByClassName "solsort-data") 
+         i 0 
+         acc {}]
+    (if (<= (.-length e) i)
+      acc
+      (recur e (inc i) 
+             (into acc (-> e
+                           (aget i)
+                           (.-dataset)
+                           (js/JSON.stringify)
+                           (js/JSON.parse)
+                           (js->clj)))))))
+(defn current-user-id []
+  (go (get (extract-solsort-data) "userid")))
+(go
+  (log 'uid (<! (current-user-id))))
 ;; ## Sample/getting started code
 ;;
 ;; This is just a small hello-world app, will be replaced by the actual code soon.
