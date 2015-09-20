@@ -26,7 +26,7 @@
 ;; ## Namespace definition
 ;;
 ;; Define the module, and declare the dependencies. Use the standard ClojureScript modules
-(ns solsort.lemon
+(ns solsort.apps.lemon
   (:require-macros
     [reagent.ratom :as ratom :refer [reaction]]
     [cljs.core.async.macros :refer  [go alt!]])
@@ -45,6 +45,7 @@
     ;; And some of my own utility functions, that I share among projects.
     ;; Routing, platform-abstraction, utilities, etc.
     [solsort.util :refer [route log unique-id]]
+    [solsort.ui :refer [app input default-shadow]]
     ))
 
 ;; ## API-mock
@@ -70,22 +71,65 @@
 ;; ## Sample/getting started code
 ;;
 ;; This is just a small hello-world app, will be replaced by the actual code soon.
-(route
-  "lemon" :app
-  (fn []
-    (reaction
-      {:type :app
-       :title "lemon"
-       :navigate-back {:event ['home] :title "Home" :icon "home"}
-       :actions [ {:event [:log "pressed hello"] :icon "hello"}
-                 {:event ['paste] :icon "paste"} ]
-       :views [ {:event ['view-left] :icon "left"}
-               {:event ['view-right] :icon "right"} ]
-       :html
+(defn login-page []
+  [:div {:style {:text-align :center
+                 :display :inline-block
+                 :position :absolute
+                 :top 0
+                 :height "100%"
+                 :width "100%"
+                 }}
+   [:h1 "LemonGold"]
+   [:div {:style {
+                  :display :inline-block
+                  :box-shadow default-shadow
+                  :padding-top 30
+                  :width 300}}
+   [:div [input :style {:width 240} :placeholder "username" :name "username"]]   
+   [:div [input :style {:width 240} :placeholder "password" :type "password ":name "password"]]
+   [:div [:button.float-right
+          {:style {:margin 15
+                   :background "#fff"
+                   :box-shadow default-shadow
+                   :border :none
+                   :padding 5
+                   }
+           :on-click #(js/alert "not implemented yet")} "login"]]
+   ]]
+  
+  )
+
+(defn show-log []
        [:div
-        ; show log
+        [:h3 "Debugging log:"]
         (map
           (fn [e] [:div {:key (unique-id)} (.slice (str e) 1 -1)])
-          (reverse @(subscribe [:log])))
-        (str (range 1000)) ; some random text that takes space
-        ]})))
+          (reverse @(subscribe [:log]))) ]    )
+(def
+  views
+  {:lemon [show-log]
+  :calendar [show-log]
+  :profile [login-page]
+  :items [login-page]
+  :show-log [show-log]}
+  )
+
+(defn view []
+  (get views @(subscribe [:view]) [login-page])
+  )
+(route
+  "lemon"
+  (fn []
+    (app
+      {:type :app
+       ;:title "LemonGold"
+       ;:navigate-back {:event ['home] :icon "emojione-lemon"}
+       ;:actions [ {:event [:log "pressed hello"] :icon "hello"} ]
+       ;:bar-color "rgba(00,50,50,0.8)"
+       :views [ 
+               {:event [:view :lemon] :icon "emojione-lemon"}
+               {:event [:view :calendar] :icon "emojione-calendar"}
+               {:event [:view :profile] :icon "emojione-bust-in-silhouette"}
+               {:event [:view :items] :icon "emojione-package"}
+               {:event [:view :show-log] :icon "emojione-clipboard"} ]
+       :html [view] })))
