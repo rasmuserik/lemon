@@ -1,4 +1,4 @@
-(defproject solsort.apps/lemon "0.0.1"
+(defproject solsort.apps/lemongold "0.0.1"
   :dependencies
   [[org.clojure/clojure "1.8.0-RC2"]
    [org.clojure/clojurescript "1.7.170"]
@@ -30,7 +30,7 @@
      :figwheel {:websocket-host ~(.getHostAddress (java.net.InetAddress/getLocalHost))
                ; :on-jsload "" 
                 }
-     :compiler {:main solsort.apps.lemon
+     :compiler {:main solsort.apps.lemongold
                 :asset-path "out"
                 :output-to "resources/public/index.js"
                 :output-dir "resources/public/out"
@@ -38,7 +38,7 @@
     {:id "dist"
      :source-paths ["src"]
      :compiler {:output-to "index.js"
-                :main solsort.apps.lemon
+                :main solsort.apps.lemongold
                 :externs ["externs.js"]
                 :optimizations :advanced
                 :pretty-print false}}]}

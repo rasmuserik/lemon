@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="solsort.apps.lemon" version="0.0.1" 
+<widget id="solsort.apps.lemongold" version="0.0.1" 
   xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
     <name>Solsort Apps</name>
     <shortdescription>Listing of apps, widgets and prototypes by solsort.com</shortdescription>

@@ -26,7 +26,7 @@
 ;; # Namespace definition
 ;;
 ;; Define the module, and declare the dependencies. Use the standard ClojureScript modules
-(ns solsort.apps.lemon
+(ns solsort.apps.lemongold
   (:require-macros
     [cljs.core.async.macros :refer  [go alt!]])
   (:require
@@ -49,9 +49,16 @@
     [solsort.misc :refer [next-tick]]
     [solsort.net :refer [<ajax]]
     [solsort.db :refer [db-url]]
-    [solsort.ui :refer [app input default-shadow add-style icon]]
+    [solsort.ui :refer [app input default-shadow add-style]]
     ))
 
+(defn icon [name] ; #
+  [:span
+   [:img {:src (str "https://solsort.com/db/icons/" name "/icon")
+         :style {:width "1em" :height "1em"}
+         }
+   ] " "]
+  )
 ;; # DB
 (defn db-init []
   (defonce tinkuy-users
@@ -393,3 +400,4 @@
 
           ]}))))
 
+(js/console.log "HERE")
