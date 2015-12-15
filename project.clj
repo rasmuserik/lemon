@@ -4,7 +4,7 @@
    [org.clojure/clojurescript "1.7.170"]
    [org.clojure/core.async "0.2.374"]
    [cljsjs/pouchdb "3.5.0-1"]
-   [solsort/util "0.0.3"]
+   [solsort/util "0.0.4-SNAPSHOT"]
    [reagent "0.5.1"]
    [re-frame "0.5.0"]
    ]

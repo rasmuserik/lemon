@@ -49,16 +49,9 @@
     [solsort.misc :refer [next-tick]]
     [solsort.net :refer [<ajax]]
     [solsort.db :refer [db-url]]
-    [solsort.ui :refer [app input default-shadow add-style]]
+    [solsort.ui :refer [app input default-shadow add-style icon]]
     ))
 
-(defn icon [name] ; #
-  [:span
-   [:img {:src (str "https://solsort.com/db/icons/" name "/icon")
-         :style {:width "1em" :height "1em"}
-         }
-   ] " "]
-  )
 ;; # DB
 (defn db-init []
   (defonce tinkuy-users
