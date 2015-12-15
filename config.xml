@@ -3,7 +3,9 @@
   xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
     <name>LemonGold</name>
     <shortdescription>Early prototype of LemonGold App</shortdescription>
-    <description>...</description>
+    <description>
+      Foreløbigt blot en meget tidlig prototype der demonstrerer layout etc, og viser Tinkuy's kalender, samt lidt debug-information. Log-ind virker ikke endnu.
+    </description>
     <author email="app@solsort.com" href="http://solsort.com">solsort.com</author>
     <icon src="www/assets/icon.png" />
     <content src="www/index.html" />
