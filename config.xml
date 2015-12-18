@@ -6,6 +6,7 @@
     <description>
       Foreløbigt blot en meget tidlig prototype der demonstrerer layout etc, og viser Tinkuy's kalender, samt lidt debug-information. Log-ind virker ikke endnu.
     </description>
+    <date>2015-09</date>
     <author email="app@solsort.com" href="http://solsort.com">solsort.com</author>
     <icon src="assets/icon.png" />
     <!--splash src="www/assets/splash.png" /-->
