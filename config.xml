@@ -8,7 +8,7 @@
     </description>
     <date>2015-09</date>
     <author email="app@solsort.com" href="http://solsort.com">solsort.com</author>
-    <icon src="assets/icon.png" />
+    <icon src="icon.png" />
     <!--splash src="www/assets/splash.png" /-->
     <content src="www/index.html" />
 
