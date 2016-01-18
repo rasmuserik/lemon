@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='utf-8'?>
 <widget id="solsort.apps.lemongold" version="0.0.1" 
   xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
-    <name>LemonGold</name>
+    <name>LemonGold prototype</name>
     <shortdescription>Early prototype of LemonGold App</shortdescription>
     <description>
       Foreløbigt blot en meget tidlig prototype der demonstrerer layout etc, og viser Tinkuy's kalender, samt lidt debug-information. Log-ind virker ikke endnu.
